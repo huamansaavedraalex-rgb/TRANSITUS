@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transitus — Bienvenid@ / Benvenuto</title>
+<title>Transitus — Bienvenid@ / Welcome / Benvenuto</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -29,211 +29,118 @@
     overflow-x: hidden;
   }
 
-  /* Animated gradient background */
   body::before {
     content: '';
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     background:
       radial-gradient(ellipse at 15% 25%, rgba(212,0,110,0.12) 0%, transparent 50%),
       radial-gradient(ellipse at 85% 75%, rgba(0,172,193,0.10) 0%, transparent 50%),
       radial-gradient(ellipse at 50% 50%, rgba(123,31,162,0.08) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
+    pointer-events: none; z-index: 0;
     animation: bgPulse 8s ease-in-out infinite alternate;
   }
+  @keyframes bgPulse { from { opacity: 0.7; } to { opacity: 1; } }
 
-  @keyframes bgPulse {
-    from { opacity: 0.7; }
-    to { opacity: 1; }
-  }
-
-  /* Grain */
   body::after {
     content: '';
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.5;
+    pointer-events: none; z-index: 0; opacity: 0.5;
   }
 
   .wrapper {
-    position: relative;
-    z-index: 1;
-    max-width: 500px;
-    margin: 0 auto;
+    position: relative; z-index: 1;
+    max-width: 500px; margin: 0 auto;
     padding: 40px 20px 80px;
   }
 
   /* ── LANGUAGE TOGGLE ── */
   .lang-toggle {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 24px;
-    gap: 6px;
+    display: flex; justify-content: flex-end;
+    margin-bottom: 24px; gap: 6px;
   }
   .lang-btn {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.1);
-    color: var(--muted);
-    border-radius: 20px;
-    padding: 5px 14px;
-    font-size: 11px;
+    color: var(--muted); border-radius: 20px;
+    padding: 5px 14px; font-size: 11px;
     font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
+    font-weight: 600; letter-spacing: 1px; cursor: pointer;
     transition: all 0.2s;
   }
-  .lang-btn.active {
-    background: var(--purple);
-    border-color: var(--purple);
-    color: white;
-  }
-  .lang-btn:hover:not(.active) {
-    background: rgba(123,31,162,0.2);
-    border-color: var(--purple);
-    color: var(--offwhite);
-  }
+  .lang-btn.active { background: var(--purple); border-color: var(--purple); color: white; }
+  .lang-btn:hover:not(.active) { background: rgba(123,31,162,0.2); border-color: var(--purple); color: var(--offwhite); }
 
   /* ── HEADER ── */
   .header {
-    text-align: center;
-    margin-bottom: 36px;
-    opacity: 0;
-    transform: translateY(24px);
+    text-align: center; margin-bottom: 36px;
+    opacity: 0; transform: translateY(24px);
     animation: fadeUp 0.8s 0.1s ease forwards;
   }
-
   .logo-ring {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    margin-bottom: 16px;
-    position: relative;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 72px; height: 72px; border-radius: 50%; margin-bottom: 16px;
     background: linear-gradient(135deg, rgba(212,0,110,0.15), rgba(0,172,193,0.15));
-    border: 1px solid rgba(123,31,162,0.3);
+    border: 1px solid rgba(123,31,162,0.3); position: relative;
   }
   .logo-ring::before {
-    content: '';
-    position: absolute;
-    inset: 5px;
-    border-radius: 50%;
-    border: 1px solid rgba(212,0,110,0.15);
+    content: ''; position: absolute; inset: 5px;
+    border-radius: 50%; border: 1px solid rgba(212,0,110,0.15);
   }
   .logo-ring span { font-size: 32px; }
-
   .brand {
     font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 900;
-    font-style: italic;
-    line-height: 1;
-    letter-spacing: -1px;
+    font-size: 42px; font-weight: 900; font-style: italic;
+    line-height: 1; letter-spacing: -1px;
     background: linear-gradient(135deg, var(--magenta), var(--purple), var(--teal));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
-
-  .tagline {
-    margin-top: 8px;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .divider {
-    width: 48px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--magenta), var(--teal));
-    margin: 14px auto 0;
-    border-radius: 2px;
-  }
+  .tagline { margin-top: 8px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+  .divider { width: 48px; height: 2px; background: linear-gradient(90deg, var(--magenta), var(--teal)); margin: 14px auto 0; border-radius: 2px; }
 
   /* ── GREETING ── */
   .greeting {
-    text-align: center;
-    margin-bottom: 32px;
-    opacity: 0;
-    transform: translateY(20px);
+    text-align: center; margin-bottom: 32px;
+    opacity: 0; transform: translateY(20px);
     animation: fadeUp 0.8s 0.25s ease forwards;
   }
-  .greeting p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--muted);
-  }
+  .greeting p { font-size: 15px; line-height: 1.7; color: var(--muted); }
   .greeting strong { color: var(--offwhite); font-weight: 600; }
 
-  /* ── MENU CARDS ── */
+  /* ── MENU ── */
   .menu { display: flex; flex-direction: column; gap: 12px; }
-
   .card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    display: flex; align-items: center; gap: 16px;
     padding: 18px 20px;
     background: rgba(26,10,46,0.7);
     border: 1px solid rgba(123,31,162,0.2);
-    border-radius: 16px;
-    cursor: pointer;
+    border-radius: 16px; cursor: pointer;
     transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(18px);
-    position: relative;
-    overflow: hidden;
+    opacity: 0; transform: translateY(18px);
+    position: relative; overflow: hidden;
     backdrop-filter: blur(10px);
   }
-
   .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
+    content: ''; position: absolute; inset: 0;
     background: linear-gradient(135deg, rgba(212,0,110,0.06), rgba(0,172,193,0.04));
-    opacity: 0;
-    transition: opacity 0.3s;
+    opacity: 0; transition: opacity 0.3s;
   }
   .card:hover::before { opacity: 1; }
-  .card:hover {
-    border-color: rgba(212,0,110,0.4);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(212,0,110,0.15), 0 0 0 1px rgba(212,0,110,0.1);
-  }
+  .card:hover { border-color: rgba(212,0,110,0.4); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(212,0,110,0.15); }
   .card:active { transform: translateY(0); }
-
   .card.anim-1 { animation: fadeUp 0.7s 0.38s ease forwards; }
   .card.anim-2 { animation: fadeUp 0.7s 0.50s ease forwards; }
   .card.anim-3 { animation: fadeUp 0.7s 0.62s ease forwards; }
   .card.anim-4 { animation: fadeUp 0.7s 0.74s ease forwards; }
-
-  .card-icon {
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px; flex-shrink: 0;
-    position: relative; z-index: 1;
-  }
+  .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; position: relative; z-index: 1; }
   .icon-1 { background: rgba(212,0,110,0.15); border: 1px solid rgba(212,0,110,0.25); }
   .icon-2 { background: rgba(0,172,193,0.15); border: 1px solid rgba(0,172,193,0.25); }
   .icon-3 { background: rgba(123,31,162,0.15); border: 1px solid rgba(123,31,162,0.25); }
   .icon-4 { background: rgba(21,101,192,0.15); border: 1px solid rgba(21,101,192,0.25); }
-
   .card-text { position: relative; z-index: 1; flex: 1; }
   .card-title { font-size: 15px; font-weight: 600; color: var(--offwhite); margin-bottom: 3px; }
   .card-sub { font-size: 12px; color: var(--muted); line-height: 1.4; }
-
-  .card-arrow {
-    font-size: 20px; color: var(--magenta); opacity: 0.5;
-    position: relative; z-index: 1;
-    transition: all 0.3s; flex-shrink: 0;
-  }
+  .card-arrow { font-size: 20px; color: var(--magenta); opacity: 0.5; position: relative; z-index: 1; transition: all 0.3s; flex-shrink: 0; }
   .card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
 
   /* ── MODAL ── */
@@ -241,182 +148,94 @@
     position: fixed; inset: 0;
     background: rgba(10,3,20,0.88);
     backdrop-filter: blur(12px);
-    z-index: 100;
-    display: flex; align-items: flex-end; justify-content: center;
-    padding: 16px;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.3s ease;
+    z-index: 100; display: flex; align-items: flex-end; justify-content: center;
+    padding: 16px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
   }
   .modal-overlay.open { opacity: 1; pointer-events: all; }
-
   .modal {
     background: rgba(26,10,46,0.95);
     border: 1px solid rgba(123,31,162,0.3);
     border-radius: 24px 24px 20px 20px;
-    width: 100%; max-width: 500px;
-    max-height: 88vh; overflow-y: auto;
+    width: 100%; max-width: 500px; max-height: 88vh; overflow-y: auto;
     transform: translateY(40px);
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    padding: 28px 24px 40px;
-    position: relative;
+    padding: 28px 24px 40px; position: relative;
   }
   .modal-overlay.open .modal { transform: translateY(0); }
-
-  .modal-handle {
-    width: 36px; height: 4px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 2px;
-    margin: 0 auto 24px;
-  }
-
+  .modal-handle { width: 36px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin: 0 auto 24px; }
   .modal-close {
     position: absolute; top: 18px; right: 20px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: var(--muted); width: 30px; height: 30px;
-    border-radius: 50%; cursor: pointer; font-size: 14px;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+    color: var(--muted); width: 30px; height: 30px; border-radius: 50%;
+    cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.2s;
   }
   .modal-close:hover { background: rgba(212,0,110,0.15); color: white; border-color: var(--magenta); }
-
-  .modal-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px; font-weight: 700;
-    margin-bottom: 4px; color: var(--offwhite);
-  }
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin-bottom: 4px; color: var(--offwhite); }
   .modal-sub { font-size: 12px; color: var(--muted); margin-bottom: 24px; }
 
-  /* ── PLAN CARDS ── */
-  .plan {
-    border-radius: 14px;
-    padding: 18px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(123,31,162,0.2);
-    background: rgba(255,255,255,0.03);
-    transition: border-color 0.2s;
-  }
+  /* ── PLANS ── */
+  .plan { border-radius: 14px; padding: 18px; margin-bottom: 10px; border: 1px solid rgba(123,31,162,0.2); background: rgba(255,255,255,0.03); transition: border-color 0.2s; }
   .plan:hover { border-color: rgba(212,0,110,0.3); }
-
-  .plan-badge {
-    display: inline-block;
-    font-size: 9px; letter-spacing: 2px;
-    text-transform: uppercase; font-weight: 700;
-    padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
-  }
-  .badge-green { background: rgba(0,172,193,0.15); color: var(--teal); }
+  .plan-badge { display: inline-block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+  .badge-green  { background: rgba(0,172,193,0.15); color: var(--teal); }
   .badge-purple { background: rgba(123,31,162,0.15); color: #CE93D8; }
-  .badge-magenta { background: rgba(212,0,110,0.15); color: #F48FB1; }
+  .badge-magenta{ background: rgba(212,0,110,0.15); color: #F48FB1; }
   .badge-aerial { background: rgba(21,101,192,0.15); color: #90CAF9; }
-
   .plan-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
   .plan-name { font-size: 15px; font-weight: 700; color: var(--offwhite); }
-  .plan-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px; font-weight: 900;
-    background: linear-gradient(135deg, var(--magenta), var(--teal));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
+  .plan-price { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; background: linear-gradient(135deg, var(--magenta), var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .plan-price span { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--muted); -webkit-text-fill-color: var(--muted); }
   .plan-detail { font-size: 12px; color: var(--muted); line-height: 1.6; }
   .plan-detail strong { color: var(--offwhite); font-weight: 600; }
-
-  .aerial-note {
-    background: rgba(21,101,192,0.1);
-    border: 1px solid rgba(21,101,192,0.25);
-    border-radius: 10px; padding: 12px 14px;
-    font-size: 12px; color: #90CAF9; line-height: 1.6; margin-top: 4px;
-  }
-
-  .free-tag {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(0,172,193,0.12);
-    border: 1px solid rgba(0,172,193,0.25);
-    border-radius: 20px; padding: 6px 14px;
-    font-size: 11px; color: var(--teal); font-weight: 700;
-    margin-bottom: 20px;
-  }
+  .aerial-note { background: rgba(21,101,192,0.1); border: 1px solid rgba(21,101,192,0.25); border-radius: 10px; padding: 12px 14px; font-size: 12px; color: #90CAF9; line-height: 1.6; margin-top: 4px; }
+  .free-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,172,193,0.12); border: 1px solid rgba(0,172,193,0.25); border-radius: 20px; padding: 6px 14px; font-size: 11px; color: var(--teal); font-weight: 700; margin-bottom: 20px; }
 
   /* ── FAQ ── */
   .faq-item { border-bottom: 1px solid rgba(255,255,255,0.05); padding: 14px 0; }
   .faq-item:last-child { border-bottom: none; }
-  .faq-q {
-    font-size: 13px; font-weight: 600; color: var(--offwhite);
-    margin-bottom: 0; cursor: pointer;
-    display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;
-  }
+  .faq-q { font-size: 13px; font-weight: 600; color: var(--offwhite); cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
   .faq-icon { color: var(--magenta); font-size: 18px; flex-shrink: 0; transition: transform 0.3s; }
   .faq-item.open .faq-icon { transform: rotate(45deg); }
-  .faq-a {
-    font-size: 12.5px; color: var(--muted); line-height: 1.7;
-    max-height: 0; overflow: hidden; transition: max-height 0.4s ease, margin-top 0.2s;
-  }
+  .faq-a { font-size: 12.5px; color: var(--muted); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, margin-top 0.2s; }
   .faq-item.open .faq-a { max-height: 200px; margin-top: 8px; }
 
-  /* ── CONTACT ── */
-  .contact-btn {
-    display: flex; align-items: center; gap: 14px;
-    padding: 16px 18px; border-radius: 14px;
-    text-decoration: none; margin-bottom: 10px;
-    transition: all 0.2s; border: 1px solid rgba(212,0,110,0.2);
-    background: rgba(212,0,110,0.08);
-  }
+  /* ── CONTACT & RESERVE ── */
+  .contact-btn { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 14px; text-decoration: none; margin-bottom: 10px; transition: all 0.2s; border: 1px solid rgba(212,0,110,0.2); background: rgba(212,0,110,0.08); }
   .contact-btn:hover { background: rgba(212,0,110,0.14); border-color: rgba(212,0,110,0.4); transform: translateY(-1px); }
   .contact-icon { font-size: 24px; }
   .contact-label { font-size: 14px; font-weight: 600; color: var(--offwhite); }
   .contact-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
-
-  /* ── RESERVE ── */
-  .reserve-note {
-    background: rgba(0,172,193,0.08);
-    border: 1px solid rgba(0,172,193,0.2);
-    border-radius: 12px; padding: 14px;
-    font-size: 12.5px; color: var(--teal); line-height: 1.6; margin-bottom: 20px;
-  }
-  .reserve-btn {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    width: 100%; padding: 16px;
-    background: linear-gradient(135deg, var(--magenta), var(--purple));
-    color: white; border: none; border-radius: 12px;
-    font-size: 14px; font-weight: 700; font-family: 'DM Sans', sans-serif;
-    cursor: pointer; text-decoration: none; transition: all 0.2s;
-    letter-spacing: 0.3px;
-  }
+  .reserve-note { background: rgba(0,172,193,0.08); border: 1px solid rgba(0,172,193,0.2); border-radius: 12px; padding: 14px; font-size: 12.5px; color: var(--teal); line-height: 1.6; margin-bottom: 20px; }
+  .reserve-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; background: linear-gradient(135deg, var(--magenta), var(--purple)); color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer; text-decoration: none; transition: all 0.2s; letter-spacing: 0.3px; }
   .reserve-btn:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,0,110,0.3); }
 
   /* ── FOOTER ── */
-  .footer {
-    text-align: center; margin-top: 48px;
-    opacity: 0; animation: fadeUp 0.8s 0.9s ease forwards;
-  }
+  .footer { text-align: center; margin-top: 48px; opacity: 0; animation: fadeUp 0.8s 0.9s ease forwards; }
   .footer p { font-size: 10px; color: rgba(158,143,178,0.4); letter-spacing: 1px; }
 
-  /* ── LANG CONTENT ── */
-  .it { display: none; }
-  body.lang-it .es { display: none; }
+  /* ── LANGUAGE VISIBILITY ── */
+  .es, .en, .it { display: none; }
+  body.lang-es .es { display: block; }
+  body.lang-en .en { display: block; }
   body.lang-it .it { display: block; }
-  body.lang-it .it-inline { display: inline; }
-  body.lang-it .es-inline { display: none; }
-  .it-inline { display: none; }
-  .es-inline { display: inline; }
+  body.lang-es .es-i { display: inline; }
+  body.lang-en .en-i { display: inline; }
+  body.lang-it .it-i { display: inline; }
+  .es-i, .en-i, .it-i { display: none; }
 
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Scrollbar */
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   .modal::-webkit-scrollbar { width: 4px; }
-  .modal::-webkit-scrollbar-track { background: transparent; }
   .modal::-webkit-scrollbar-thumb { background: rgba(123,31,162,0.3); border-radius: 2px; }
 </style>
 </head>
-<body>
+<body class="lang-es">
 
 <div class="wrapper">
 
   <!-- LANGUAGE TOGGLE -->
   <div class="lang-toggle">
     <button class="lang-btn active" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('it')">IT</button>
   </div>
 
@@ -425,24 +244,18 @@
     <div class="logo-ring"><span>🎪</span></div>
     <div class="brand">Transitus</div>
     <div class="tagline">
-      <span class="es-inline">Arte · Movimiento · Transformación</span>
-      <span class="it-inline">Arte · Movimento · Trasformazione</span>
+      <span class="es-i">Arte · Movimiento · Transformación</span>
+      <span class="en-i">Art · Movement · Transformation</span>
+      <span class="it-i">Arte · Movimento · Trasformazione</span>
     </div>
     <div class="divider"></div>
   </div>
 
   <!-- GREETING -->
   <div class="greeting">
-    <p class="es">
-      <strong>¡Hola! Bienvenid@ 👋</strong><br>
-      Estamos felices de que estés aquí.<br>
-      ¿En qué te podemos ayudar hoy?
-    </p>
-    <p class="it">
-      <strong>Ciao! Benvenuto/a 👋</strong><br>
-      Siamo felici che tu sia qui.<br>
-      Come possiamo aiutarti oggi?
-    </p>
+    <p class="es"><strong>¡Hola! Bienvenid@ 👋</strong><br>Estamos felices de que estés aquí.<br>¿En qué te podemos ayudar hoy?</p>
+    <p class="en"><strong>Hello! Welcome 👋</strong><br>We're happy you're here.<br>How can we help you today?</p>
+    <p class="it"><strong>Ciao! Benvenuto/a 👋</strong><br>Siamo felici che tu sia qui.<br>Come possiamo aiutarti oggi?</p>
   </div>
 
   <!-- MENU -->
@@ -452,12 +265,14 @@
       <div class="card-icon icon-1">🎓</div>
       <div class="card-text">
         <div class="card-title">
-          <span class="es">Ver planes y precios</span>
-          <span class="it">Piani e prezzi</span>
+          <span class="es-i">Ver planes y precios</span>
+          <span class="en-i">Plans & pricing</span>
+          <span class="it-i">Piani e prezzi</span>
         </div>
         <div class="card-sub">
-          <span class="es">Explorador, Transitus y Plan Completo</span>
-          <span class="it">Esploratore, Transitus e Piano Completo</span>
+          <span class="es-i">Explorador, Transitus y Plan Completo</span>
+          <span class="en-i">Explorer, Transitus and Full Plan</span>
+          <span class="it-i">Esploratore, Transitus e Piano Completo</span>
         </div>
       </div>
       <div class="card-arrow">›</div>
@@ -467,12 +282,14 @@
       <div class="card-icon icon-2">📅</div>
       <div class="card-text">
         <div class="card-title">
-          <span class="es">Reservar clase gratis</span>
-          <span class="it">Prenota lezione gratuita</span>
+          <span class="es-i">Reservar clase gratis</span>
+          <span class="en-i">Book a free class</span>
+          <span class="it-i">Prenota lezione gratuita</span>
         </div>
         <div class="card-sub">
-          <span class="es">Tu primera clase sin costo ni compromiso</span>
-          <span class="it">La tua prima lezione senza costi</span>
+          <span class="es-i">Tu primera clase sin costo ni compromiso</span>
+          <span class="en-i">Your first class free, no commitment</span>
+          <span class="it-i">La tua prima lezione senza costi</span>
         </div>
       </div>
       <div class="card-arrow">›</div>
@@ -482,12 +299,14 @@
       <div class="card-icon icon-3">❓</div>
       <div class="card-text">
         <div class="card-title">
-          <span class="es">Preguntas frecuentes</span>
-          <span class="it">Domande frequenti</span>
+          <span class="es-i">Preguntas frecuentes</span>
+          <span class="en-i">FAQ</span>
+          <span class="it-i">Domande frequenti</span>
         </div>
         <div class="card-sub">
-          <span class="es">Edades, horarios, requisitos y más</span>
-          <span class="it">Età, orari, requisiti e altro</span>
+          <span class="es-i">Edades, horarios, requisitos y más</span>
+          <span class="en-i">Ages, schedules, requirements & more</span>
+          <span class="it-i">Età, orari, requisiti e altro</span>
         </div>
       </div>
       <div class="card-arrow">›</div>
@@ -497,12 +316,14 @@
       <div class="card-icon icon-4">💬</div>
       <div class="card-text">
         <div class="card-title">
-          <span class="es">Contactar directamente</span>
-          <span class="it">Contattaci direttamente</span>
+          <span class="es-i">Contactar directamente</span>
+          <span class="en-i">Contact us directly</span>
+          <span class="it-i">Contattaci direttamente</span>
         </div>
         <div class="card-sub">
-          <span class="es">Habla con nosotros por Instagram</span>
-          <span class="it">Scrivici su Instagram</span>
+          <span class="es-i">Habla con nosotros por Instagram</span>
+          <span class="en-i">Message us on Instagram</span>
+          <span class="it-i">Scrivici su Instagram</span>
         </div>
       </div>
       <div class="card-arrow">›</div>
@@ -513,266 +334,202 @@
   <div class="footer"><p>TRANSITUS © 2026</p></div>
 </div>
 
-<!-- MODAL PLANES -->
+<!-- ── MODAL PLANES ── -->
 <div class="modal-overlay" id="modal-planes" onclick="closeOnOverlay(event,'planes')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('planes')">✕</button>
     <div class="modal-handle"></div>
 
+    <!-- ES -->
     <div class="es">
       <div class="modal-title">Nuestros planes</div>
       <div class="modal-sub">Clases de 55 min · Grupos de máx. 6 alumnos</div>
       <div class="free-tag">✨ Primera clase siempre gratis</div>
-
       <div class="plan">
         <div class="plan-badge badge-green">🌱 Explorador</div>
-        <div class="plan-header">
-          <div class="plan-name">Plan Explorador</div>
-          <div class="plan-price">30€ <span>/ mes</span></div>
-        </div>
-        <div class="plan-detail"><strong>1 clase/semana · 4 clases al mes</strong><br>Una disciplina a elección. Ballet, flexibilidad, danza, muay thai, handstand y más.</div>
+        <div class="plan-header"><div class="plan-name">Plan Explorador</div><div class="plan-price">30€ <span>/ mes</span></div></div>
+        <div class="plan-detail"><strong>1 clase/semana · 4 clases al mes</strong><br>Una disciplina a elección: ballet, flexibilidad, danza, muay thai, handstand y más.</div>
       </div>
-
       <div class="plan">
         <div class="plan-badge badge-purple">⭐ Transitus</div>
-        <div class="plan-header">
-          <div class="plan-name">Plan Transitus</div>
-          <div class="plan-price">50€ <span>/ mes</span></div>
-        </div>
+        <div class="plan-header"><div class="plan-name">Plan Transitus</div><div class="plan-price">50€ <span>/ mes</span></div></div>
         <div class="plan-detail"><strong>2 clases/semana · 8 clases al mes</strong><br>Más frecuencia, más progreso. Para quienes ya saben qué disciplina quieren trabajar.</div>
       </div>
-
       <div class="plan">
         <div class="plan-badge badge-magenta">🎪 Completo</div>
-        <div class="plan-header">
-          <div class="plan-name">Plan Completo</div>
-          <div class="plan-price">75€ <span>/ mes</span></div>
-        </div>
-        <div class="plan-detail"><strong>3 clases/semana · 12 clases al mes</strong><br>Acceso libre a TODAS las disciplinas con ambos profesores. Incluye Aéreos sin costo adicional.</div>
+        <div class="plan-header"><div class="plan-name">Plan Completo</div><div class="plan-price">75€ <span>/ mes</span></div></div>
+        <div class="plan-detail"><strong>3 clases/semana · 12 clases al mes</strong><br>Acceso libre a TODAS las disciplinas con ambos profesores. Incluye Aéreos.</div>
       </div>
-
-      <div class="aerial-note">
-        🪢 <strong>¿Te interesan los Aéreos?</strong><br>
-        Plan Explorador con Aéreos → <strong>35€/mes</strong><br>
-        Plan Transitus con Aéreos → <strong>55€/mes</strong><br>
-        Plan Completo → ya incluye Aéreos ✓
-      </div>
-
+      <div class="aerial-note">🪢 <strong>¿Te interesan los Aéreos?</strong><br>Plan Explorador con Aéreos → <strong>35€/mes</strong><br>Plan Transitus con Aéreos → <strong>55€/mes</strong><br>Plan Completo → ya incluye Aéreos ✓</div>
       <div class="plan" style="margin-top:10px">
         <div class="plan-badge badge-aerial">🎟️ Clase suelta</div>
-        <div class="plan-header">
-          <div class="plan-name">Clase suelta</div>
-          <div class="plan-price">15€</div>
-        </div>
+        <div class="plan-header"><div class="plan-name">Clase suelta</div><div class="plan-price">15€</div></div>
         <div class="plan-detail">Para probar una disciplina adicional fuera de tu plan.</div>
       </div>
     </div>
 
+    <!-- EN -->
+    <div class="en">
+      <div class="modal-title">Our plans</div>
+      <div class="modal-sub">55 min classes · Max 6 students per group</div>
+      <div class="free-tag">✨ First class always free</div>
+      <div class="plan">
+        <div class="plan-badge badge-green">🌱 Explorer</div>
+        <div class="plan-header"><div class="plan-name">Explorer Plan</div><div class="plan-price">30€ <span>/ month</span></div></div>
+        <div class="plan-detail"><strong>1 class/week · 4 classes per month</strong><br>One discipline of your choice: ballet, flexibility, dance, muay thai, handstand and more.</div>
+      </div>
+      <div class="plan">
+        <div class="plan-badge badge-purple">⭐ Transitus</div>
+        <div class="plan-header"><div class="plan-name">Transitus Plan</div><div class="plan-price">50€ <span>/ month</span></div></div>
+        <div class="plan-detail"><strong>2 classes/week · 8 classes per month</strong><br>More frequency, more progress. For those who know which discipline they want to focus on.</div>
+      </div>
+      <div class="plan">
+        <div class="plan-badge badge-magenta">🎪 Full</div>
+        <div class="plan-header"><div class="plan-name">Full Plan</div><div class="plan-price">75€ <span>/ month</span></div></div>
+        <div class="plan-detail"><strong>3 classes/week · 12 classes per month</strong><br>Free access to ALL disciplines with both teachers. Includes Aerial arts.</div>
+      </div>
+      <div class="aerial-note">🪢 <strong>Interested in Aerial arts?</strong><br>Explorer Plan with Aerial → <strong>35€/month</strong><br>Transitus Plan with Aerial → <strong>55€/month</strong><br>Full Plan → Aerial already included ✓</div>
+      <div class="plan" style="margin-top:10px">
+        <div class="plan-badge badge-aerial">🎟️ Drop-in class</div>
+        <div class="plan-header"><div class="plan-name">Drop-in class</div><div class="plan-price">15€</div></div>
+        <div class="plan-detail">Try an additional discipline outside your plan.</div>
+      </div>
+    </div>
+
+    <!-- IT -->
     <div class="it">
       <div class="modal-title">I nostri piani</div>
       <div class="modal-sub">Lezioni da 55 min · Gruppi max 6 alunni</div>
       <div class="free-tag">✨ Prima lezione sempre gratuita</div>
-
       <div class="plan">
         <div class="plan-badge badge-green">🌱 Esploratore</div>
-        <div class="plan-header">
-          <div class="plan-name">Piano Esploratore</div>
-          <div class="plan-price">30€ <span>/ mese</span></div>
-        </div>
-        <div class="plan-detail"><strong>1 lezione/settimana · 4 lezioni al mese</strong><br>Una disciplina a scelta. Balletto, flessibilità, danza, muay thai, handstand e altro.</div>
+        <div class="plan-header"><div class="plan-name">Piano Esploratore</div><div class="plan-price">30€ <span>/ mese</span></div></div>
+        <div class="plan-detail"><strong>1 lezione/settimana · 4 lezioni al mese</strong><br>Una disciplina a scelta: balletto, flessibilità, danza, muay thai, handstand e altro.</div>
       </div>
-
       <div class="plan">
         <div class="plan-badge badge-purple">⭐ Transitus</div>
-        <div class="plan-header">
-          <div class="plan-name">Piano Transitus</div>
-          <div class="plan-price">50€ <span>/ mese</span></div>
-        </div>
+        <div class="plan-header"><div class="plan-name">Piano Transitus</div><div class="plan-price">50€ <span>/ mese</span></div></div>
         <div class="plan-detail"><strong>2 lezioni/settimana · 8 lezioni al mese</strong><br>Più frequenza, più progressi. Per chi sa già quale disciplina vuole praticare.</div>
       </div>
-
       <div class="plan">
         <div class="plan-badge badge-magenta">🎪 Completo</div>
-        <div class="plan-header">
-          <div class="plan-name">Piano Completo</div>
-          <div class="plan-price">75€ <span>/ mese</span></div>
-        </div>
+        <div class="plan-header"><div class="plan-name">Piano Completo</div><div class="plan-price">75€ <span>/ mese</span></div></div>
         <div class="plan-detail"><strong>3 lezioni/settimana · 12 lezioni al mese</strong><br>Accesso libero a TUTTE le discipline con entrambi gli insegnanti. Aerea inclusa.</div>
       </div>
-
-      <div class="aerial-note">
-        🪢 <strong>Ti interessa la Aerea?</strong><br>
-        Piano Esploratore con Aerea → <strong>35€/mese</strong><br>
-        Piano Transitus con Aerea → <strong>55€/mese</strong><br>
-        Piano Completo → Aerea già inclusa ✓
-      </div>
-
+      <div class="aerial-note">🪢 <strong>Ti interessa la Aerea?</strong><br>Piano Esploratore con Aerea → <strong>35€/mese</strong><br>Piano Transitus con Aerea → <strong>55€/mese</strong><br>Piano Completo → Aerea già inclusa ✓</div>
       <div class="plan" style="margin-top:10px">
         <div class="plan-badge badge-aerial">🎟️ Lezione singola</div>
-        <div class="plan-header">
-          <div class="plan-name">Lezione singola</div>
-          <div class="plan-price">15€</div>
-        </div>
+        <div class="plan-header"><div class="plan-name">Lezione singola</div><div class="plan-price">15€</div></div>
         <div class="plan-detail">Per provare una disciplina aggiuntiva fuori dal piano.</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- MODAL RESERVA -->
+<!-- ── MODAL RESERVA ── -->
 <div class="modal-overlay" id="modal-reserva" onclick="closeOnOverlay(event,'reserva')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('reserva')">✕</button>
     <div class="modal-handle"></div>
-
     <div class="es">
       <div class="modal-title">¡Clase gratis! 🎉</div>
       <div class="modal-sub">Sin tarjeta · Sin compromiso · 55 minutos</div>
       <div class="reserve-note">✨ Todo alumno nuevo tiene derecho a una clase completamente gratuita antes de inscribirse.</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7">
-        Para reservar escríbenos por Instagram y cuéntanos:<br><br>
-        👉 ¿Qué disciplina te llama más?<br>
-        👉 ¿Es para ti o para un/a niñ@?<br>
-        👉 ¿Qué días y horarios te quedan mejor?
-      </p>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7">Para reservar escríbenos por Instagram y cuéntanos:<br><br>👉 ¿Qué disciplina te llama más?<br>👉 ¿Es para ti o para un/a niñ@?<br>👉 ¿Qué días y horarios te quedan mejor?</p>
       <a href="https://www.instagram.com/_transitus" target="_blank" class="reserve-btn">📩 Escribirnos en Instagram</a>
     </div>
-
+    <div class="en">
+      <div class="modal-title">Free class! 🎉</div>
+      <div class="modal-sub">No card · No commitment · 55 minutes</div>
+      <div class="reserve-note">✨ Every new student gets one completely free class before signing up.</div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7">To book, message us on Instagram and let us know:<br><br>👉 Which discipline interests you most?<br>👉 Is it for you or a child?<br>👉 What days and times work best for you?</p>
+      <a href="https://www.instagram.com/_transitus" target="_blank" class="reserve-btn">📩 Message us on Instagram</a>
+    </div>
     <div class="it">
       <div class="modal-title">Lezione gratuita! 🎉</div>
       <div class="modal-sub">Senza carta · Senza impegno · 55 minuti</div>
       <div class="reserve-note">✨ Ogni nuovo alunno ha diritto a una lezione completamente gratuita prima di iscriversi.</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7">
-        Per prenotare scrivici su Instagram e dicci:<br><br>
-        👉 Quale disciplina ti interessa di più?<br>
-        👉 È per te o per un bambino/a?<br>
-        👉 Quali giorni e orari preferisci?
-      </p>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7">Per prenotare scrivici su Instagram e dicci:<br><br>👉 Quale disciplina ti interessa di più?<br>👉 È per te o per un bambino/a?<br>👉 Quali giorni e orari preferisci?</p>
       <a href="https://www.instagram.com/_transitus" target="_blank" class="reserve-btn">📩 Scrivici su Instagram</a>
     </div>
   </div>
 </div>
 
-<!-- MODAL FAQ -->
+<!-- ── MODAL FAQ ── -->
 <div class="modal-overlay" id="modal-faq" onclick="closeOnOverlay(event,'faq')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('faq')">✕</button>
     <div class="modal-handle"></div>
-
     <div class="es">
       <div class="modal-title">Preguntas frecuentes</div>
       <div class="modal-sub">Lo que más nos preguntan 👇</div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">¿Desde qué edad se puede tomar clases? <span class="faq-icon">+</span></div>
-        <div class="faq-a">¡Para todas las edades! Tenemos clases para niñas, jóvenes y adultos. No importa desde dónde empiezas.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">¿Necesito experiencia previa? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Para nada. Aceptamos principiantes completos en todas las disciplinas. La primera clase gratis es para que pruebes sin presión.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">¿Las clases son presenciales o virtuales? <span class="faq-icon">+</span></div>
-        <div class="faq-a">La mayoría son 100% virtuales desde casa. La excepción son los Aéreos, que se realizan en un espacio físico equipado.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">¿Cuántos alumnos hay por clase? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Máximo 6 alumnos por clase para garantizar atención personalizada.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">¿Cuánto dura cada clase? <span class="faq-icon">+</span></div>
-        <div class="faq-a">55 minutos exactos. Comenzamos puntual y terminamos a la hora. Pedimos que estés listo/a 5 minutos antes.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">¿Los Aéreos cuestan más? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Sí, porque requieren un espacio físico equipado. El Plan Explorador con Aéreos es 35€/mes y el Plan Transitus con Aéreos es 55€/mes. El Plan Completo ya incluye Aéreos sin costo extra.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">¿Puedo cambiar de plan? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Sí, puedes cambiar al inicio de cada mes. Solo avísanos y lo ajustamos.</div>
-      </div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Desde qué edad se puede tomar clases? <span class="faq-icon">+</span></div><div class="faq-a">¡Para todas las edades! Tenemos clases para niñas, jóvenes y adultos.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Necesito experiencia previa? <span class="faq-icon">+</span></div><div class="faq-a">Para nada. Aceptamos principiantes completos en todas las disciplinas.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Las clases son presenciales o virtuales? <span class="faq-icon">+</span></div><div class="faq-a">La mayoría son 100% virtuales. Solo los Aéreos requieren espacio físico.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Cuántos alumnos hay por clase? <span class="faq-icon">+</span></div><div class="faq-a">Máximo 6 alumnos por clase para garantizar atención personalizada.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Cuánto dura cada clase? <span class="faq-icon">+</span></div><div class="faq-a">55 minutos exactos. Comenzamos puntual y terminamos a la hora.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Los Aéreos cuestan más? <span class="faq-icon">+</span></div><div class="faq-a">Sí. Explorador con Aéreos: 35€/mes. Transitus con Aéreos: 55€/mes. El Plan Completo ya incluye Aéreos.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Puedo cambiar de plan? <span class="faq-icon">+</span></div><div class="faq-a">Sí, al inicio de cada mes. Solo avísanos y lo ajustamos.</div></div>
     </div>
-
+    <div class="en">
+      <div class="modal-title">Frequently asked questions</div>
+      <div class="modal-sub">The most common questions 👇</div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What age can students start? <span class="faq-icon">+</span></div><div class="faq-a">All ages! We have classes for children, teenagers and adults.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I need prior experience? <span class="faq-icon">+</span></div><div class="faq-a">Not at all. We welcome complete beginners in all disciplines.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Are classes in-person or online? <span class="faq-icon">+</span></div><div class="faq-a">Most are 100% virtual from home. Only Aerial arts require a physical space.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How many students per class? <span class="faq-icon">+</span></div><div class="faq-a">Maximum 6 students per class to ensure personalized attention.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How long is each class? <span class="faq-icon">+</span></div><div class="faq-a">Exactly 55 minutes. We start and finish on time.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Does Aerial cost more? <span class="faq-icon">+</span></div><div class="faq-a">Yes. Explorer with Aerial: 35€/month. Transitus with Aerial: 55€/month. Full Plan already includes Aerial.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I change my plan? <span class="faq-icon">+</span></div><div class="faq-a">Yes, at the start of each month. Just let us know and we'll sort it out.</div></div>
+    </div>
     <div class="it">
       <div class="modal-title">Domande frequenti</div>
       <div class="modal-sub">Le domande più comuni 👇</div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">Da che età si può seguire le lezioni? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Per tutte le età! Abbiamo lezioni per bambini, ragazzi e adulti. Non importa da dove si parte.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">Ho bisogno di esperienza previa? <span class="faq-icon">+</span></div>
-        <div class="faq-a">No, accettiamo principianti completi in tutte le discipline. La prima lezione gratuita è proprio per provare senza pressione.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">Le lezioni sono in presenza o online? <span class="faq-icon">+</span></div>
-        <div class="faq-a">La maggior parte sono 100% virtuali da casa. L'eccezione è la Aerea, che si svolge in uno spazio fisico attrezzato.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">Quanti alunni ci sono per classe? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Massimo 6 alunni per classe per garantire attenzione personalizzata.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">Quanto dura ogni lezione? <span class="faq-icon">+</span></div>
-        <div class="faq-a">55 minuti esatti. Si inizia puntuali e si finisce all'ora. Chiediamo di essere pronti 5 minuti prima.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">La Aerea costa di più? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Sì, perché richiede uno spazio fisico attrezzato. Piano Esploratore con Aerea: 35€/mese. Piano Transitus con Aerea: 55€/mese. Il Piano Completo include già la Aerea.</div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">Posso cambiare piano? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Sì, puoi cambiare all'inizio di ogni mese. Basta avvisarci e lo aggiustiamo.</div>
-      </div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Da che età si può seguire le lezioni? <span class="faq-icon">+</span></div><div class="faq-a">Per tutte le età! Abbiamo lezioni per bambini, ragazzi e adulti.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Ho bisogno di esperienza previa? <span class="faq-icon">+</span></div><div class="faq-a">No, accettiamo principianti completi in tutte le discipline.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Le lezioni sono in presenza o online? <span class="faq-icon">+</span></div><div class="faq-a">La maggior parte sono 100% virtuali da casa. Solo la Aerea richiede uno spazio fisico.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Quanti alunni ci sono per classe? <span class="faq-icon">+</span></div><div class="faq-a">Massimo 6 alunni per classe per garantire attenzione personalizzata.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Quanto dura ogni lezione? <span class="faq-icon">+</span></div><div class="faq-a">55 minuti esatti. Si inizia puntuali e si finisce all'ora.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">La Aerea costa di più? <span class="faq-icon">+</span></div><div class="faq-a">Sì. Esploratore con Aerea: 35€/mese. Transitus con Aerea: 55€/mese. Il Piano Completo include già la Aerea.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Posso cambiare piano? <span class="faq-icon">+</span></div><div class="faq-a">Sì, all'inizio di ogni mese. Basta avvisarci e lo aggiustiamo.</div></div>
     </div>
   </div>
 </div>
 
-<!-- MODAL CONTACTO -->
+<!-- ── MODAL CONTACTO ── -->
 <div class="modal-overlay" id="modal-contacto" onclick="closeOnOverlay(event,'contacto')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('contacto')">✕</button>
     <div class="modal-handle"></div>
-
     <div class="es">
       <div class="modal-title">Contáctanos</div>
       <div class="modal-sub">Estamos aquí para resolver tus dudas 🙌</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.7">
-        Escríbenos por Instagram y te respondemos lo antes posible.
-      </p>
-      <a href="https://www.instagram.com/_transitus" target="_blank" class="contact-btn">
-        <div class="contact-icon">📸</div>
-        <div>
-          <div class="contact-label">Instagram — @_transitus</div>
-          <div class="contact-sub">DM directo · Te respondemos pronto</div>
-        </div>
-      </a>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.7">Escríbenos por Instagram y te respondemos lo antes posible.</p>
+      <a href="https://www.instagram.com/_transitus" target="_blank" class="contact-btn"><div class="contact-icon">📸</div><div><div class="contact-label">Instagram — @_transitus</div><div class="contact-sub">DM directo · Te respondemos pronto</div></div></a>
     </div>
-
+    <div class="en">
+      <div class="modal-title">Contact us</div>
+      <div class="modal-sub">We're here to answer your questions 🙌</div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.7">Message us on Instagram and we'll get back to you as soon as possible.</p>
+      <a href="https://www.instagram.com/_transitus" target="_blank" class="contact-btn"><div class="contact-icon">📸</div><div><div class="contact-label">Instagram — @_transitus</div><div class="contact-sub">Direct message · We'll reply soon</div></div></a>
+    </div>
     <div class="it">
       <div class="modal-title">Contattaci</div>
       <div class="modal-sub">Siamo qui per rispondere alle tue domande 🙌</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.7">
-        Scrivici su Instagram e ti risponderemo il prima possibile.
-      </p>
-      <a href="https://www.instagram.com/_transitus" target="_blank" class="contact-btn">
-        <div class="contact-icon">📸</div>
-        <div>
-          <div class="contact-label">Instagram — @_transitus</div>
-          <div class="contact-sub">DM diretto · Risponderemo presto</div>
-        </div>
-      </a>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.7">Scrivici su Instagram e ti risponderemo il prima possibile.</p>
+      <a href="https://www.instagram.com/_transitus" target="_blank" class="contact-btn"><div class="contact-icon">📸</div><div><div class="contact-label">Instagram — @_transitus</div><div class="contact-sub">DM diretto · Risponderemo presto</div></div></a>
     </div>
   </div>
 </div>
 
 <script>
-// Language
 function setLang(lang) {
-  document.body.className = lang === 'it' ? 'lang-it' : '';
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+  document.body.className = 'lang-' + lang;
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.textContent === lang.toUpperCase())
+  );
 }
 
-// Modals
 function openModal(id) {
   document.getElementById('modal-' + id).classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -784,11 +541,8 @@ function closeModal(id) {
 function closeOnOverlay(e, id) {
   if (e.target === document.getElementById('modal-' + id)) closeModal(id);
 }
-
-// FAQ
 function toggleFaq(el) { el.classList.toggle('open'); }
 
-// Escape key
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     document.querySelectorAll('.modal-overlay.open').forEach(m => {
@@ -797,6 +551,14 @@ document.addEventListener('keydown', e => {
     });
   }
 });
+
+function checkHash() {
+  const hash = window.location.hash.replace('#', '');
+  const valid = ['planes', 'reserva', 'faq', 'contacto'];
+  if (valid.includes(hash)) setTimeout(() => openModal(hash), 600);
+}
+window.addEventListener('load', checkHash);
+window.addEventListener('hashchange', checkHash);
 </script>
 </body>
 </html>
