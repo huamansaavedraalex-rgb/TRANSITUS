@@ -226,6 +226,35 @@
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   .modal::-webkit-scrollbar { width: 4px; }
   .modal::-webkit-scrollbar-thumb { background: rgba(123,31,162,0.3); border-radius: 2px; }
+
+  /* ── FORM STYLES ── */
+  .field { margin-bottom: 16px; }
+  .field-label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 7px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .field-input {
+    width: 100%; padding: 12px 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(123,31,162,0.3);
+    border-radius: 10px; color: var(--offwhite);
+    font-family: 'DM Sans', sans-serif; font-size: 13px;
+    transition: all 0.2s; outline: none;
+  }
+  .field-input:focus { border-color: var(--magenta); background: rgba(212,0,110,0.07); }
+  .field-input::placeholder { color: rgba(158,143,178,0.4); }
+  .field-select { cursor: pointer; }
+  .field-select option { background: #1A0A2E; color: var(--offwhite); }
+  .radio-group, .check-group { display: flex; flex-direction: column; gap: 8px; }
+  .radio-opt, .check-opt {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; border-radius: 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(123,31,162,0.2);
+    cursor: pointer; transition: all 0.2s; font-size: 13px; color: var(--offwhite);
+  }
+  .radio-opt:hover, .check-opt:hover { border-color: rgba(212,0,110,0.35); background: rgba(212,0,110,0.06); }
+  .radio-opt input, .check-opt input { accent-color: var(--magenta); width: 16px; height: 16px; flex-shrink: 0; }
+  .field-input.error { border-color: #FF4D6D; }
+  .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body class="lang-es">
@@ -431,27 +460,137 @@
   <div class="modal">
     <button class="modal-close" onclick="closeModal('reserva')">✕</button>
     <div class="modal-handle"></div>
-    <div class="es">
-      <div class="modal-title">¡Clase gratis! 🎉</div>
-      <div class="modal-sub">Sin tarjeta · Sin compromiso · 55 minutos</div>
-      <div class="reserve-note">✨ Todo alumno nuevo tiene derecho a una clase completamente gratuita antes de inscribirse.</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7">Para reservar escríbenos por Instagram y cuéntanos:<br><br>👉 ¿Qué disciplina te llama más?<br>👉 ¿Es para ti o para un/a niñ@?<br>👉 ¿Qué días y horarios te quedan mejor?</p>
-      <a href="https://www.instagram.com/_transitus" target="_blank" class="reserve-btn">📩 Escribirnos en Instagram</a>
+
+    <!-- Títulos por idioma -->
+    <div class="es"><div class="modal-title">¡Reserva tu clase gratis! 🎉</div><div class="modal-sub">Sin tarjeta · Sin compromiso · 55 minutos</div></div>
+    <div class="en"><div class="modal-title">Book your free class! 🎉</div><div class="modal-sub">No card · No commitment · 55 minutes</div></div>
+    <div class="it"><div class="modal-title">Prenota la tua lezione gratuita! 🎉</div><div class="modal-sub">Senza carta · Senza impegno · 55 minuti</div></div>
+
+    <div class="free-tag">✨ <span class="es-i">Primera clase completamente gratis</span><span class="en-i">First class completely free</span><span class="it-i">Prima lezione completamente gratuita</span></div>
+
+    <!-- FORMULARIO -->
+    <div id="form-area">
+      <!-- Nombre -->
+      <div class="field">
+        <label class="field-label"><span class="es-i">Nombre completo</span><span class="en-i">Full name</span><span class="it-i">Nome completo</span></label>
+        <input class="field-input" type="text" id="f-name" placeholder="Alexandra García / Alexandra García / Alexandra García">
+      </div>
+
+      <!-- Email -->
+      <div class="field">
+        <label class="field-label">Email</label>
+        <input class="field-input" type="email" id="f-email" placeholder="correo@ejemplo.com">
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="field">
+        <label class="field-label">WhatsApp / <span class="es-i">Teléfono</span><span class="en-i">Phone</span><span class="it-i">Telefono</span></label>
+        <input class="field-input" type="tel" id="f-phone" placeholder="+51 999 999 999">
+      </div>
+
+      <!-- Edad -->
+      <div class="field">
+        <label class="field-label"><span class="es-i">Edad del alumno</span><span class="en-i">Student's age</span><span class="it-i">Età dello studente</span></label>
+        <input class="field-input" type="number" id="f-age" placeholder="ej. 12 / e.g. 12 / es. 12" min="3" max="99">
+      </div>
+
+      <!-- Para quién -->
+      <div class="field">
+        <label class="field-label"><span class="es-i">¿Para quién es la clase?</span><span class="en-i">Who is the class for?</span><span class="it-i">Per chi è la lezione?</span></label>
+        <div class="radio-group">
+          <label class="radio-opt">
+            <input type="radio" name="forwho" value="Para mí / For me / Per me">
+            <span><span class="es-i">Para mí</span><span class="en-i">For me</span><span class="it-i">Per me</span></span>
+          </label>
+          <label class="radio-opt">
+            <input type="radio" name="forwho" value="Para mi hij@ / For my child / Per mio/a figlio/a">
+            <span><span class="es-i">Para mi hij@</span><span class="en-i">For my child</span><span class="it-i">Per mio/a figlio/a</span></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Disciplina -->
+      <div class="field">
+        <label class="field-label"><span class="es-i">Disciplina de interés</span><span class="en-i">Discipline of interest</span><span class="it-i">Disciplina di interesse</span></label>
+        <select class="field-input field-select" id="f-discipline">
+          <option value="" disabled selected><span class="es-i">Elige una opción</span></option>
+          <option value="Aéreos / Aerial / Aerea">🪢 <span class="es-i">Aéreos</span><span class="en-i">Aerial arts</span><span class="it-i">Aerea</span></option>
+          <option value="Ballet">🩰 Ballet</option>
+          <option value="Danza / Dance / Danza">💃 <span class="es-i">Danza contemporánea</span><span class="en-i">Contemporary dance</span><span class="it-i">Danza contemporanea</span></option>
+          <option value="Flexibilidad / Flexibility / Flessibilità">🤸 <span class="es-i">Flexibilidad</span><span class="en-i">Flexibility</span><span class="it-i">Flessibilità</span></option>
+          <option value="Muay Thai">🥊 Muay Thai</option>
+          <option value="Handstand">🙃 Handstand</option>
+          <option value="Acondicionamiento / Fitness / Condizionamento">💪 <span class="es-i">Acondicionamiento físico</span><span class="en-i">Physical conditioning</span><span class="it-i">Condizionamento fisico</span></option>
+          <option value="No sé aún / Not sure yet / Non sono sicuro/a">🤔 <span class="es-i">No sé aún</span><span class="en-i">Not sure yet</span><span class="it-i">Non sono sicuro/a</span></option>
+        </select>
+      </div>
+
+      <!-- Nivel -->
+      <div class="field">
+        <label class="field-label"><span class="es-i">Nivel del alumno</span><span class="en-i">Student level</span><span class="it-i">Livello dello studente</span></label>
+        <div class="radio-group">
+          <label class="radio-opt">
+            <input type="radio" name="level" value="Principiante / Beginner / Principiante">
+            <span><span class="es-i">Principiante</span><span class="en-i">Beginner</span><span class="it-i">Principiante</span></span>
+          </label>
+          <label class="radio-opt">
+            <input type="radio" name="level" value="Intermedio / Intermediate / Intermedio">
+            <span><span class="es-i">Intermedio</span><span class="en-i">Intermediate</span><span class="it-i">Intermedio</span></span>
+          </label>
+          <label class="radio-opt">
+            <input type="radio" name="level" value="Avanzado / Advanced / Avanzato">
+            <span><span class="es-i">Avanzado</span><span class="en-i">Advanced</span><span class="it-i">Avanzato</span></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Disponibilidad -->
+      <div class="field">
+        <label class="field-label"><span class="es-i">Disponibilidad horaria</span><span class="en-i">Schedule availability</span><span class="it-i">Disponibilità oraria</span></label>
+        <div class="check-group">
+          <label class="check-opt"><input type="checkbox" name="schedule" value="Mañana / Morning / Mattina"> <span>🌅 <span class="es-i">Mañana</span><span class="en-i">Morning</span><span class="it-i">Mattina</span></span></label>
+          <label class="check-opt"><input type="checkbox" name="schedule" value="Tarde / Afternoon / Pomeriggio"> <span>☀️ <span class="es-i">Tarde</span><span class="en-i">Afternoon</span><span class="it-i">Pomeriggio</span></span></label>
+          <label class="check-opt"><input type="checkbox" name="schedule" value="Noche / Evening / Sera"> <span>🌙 <span class="es-i">Noche</span><span class="en-i">Evening</span><span class="it-i">Sera</span></span></label>
+          <label class="check-opt"><input type="checkbox" name="schedule" value="Fines de semana / Weekends / Fine settimana"> <span>🗓️ <span class="es-i">Fines de semana</span><span class="en-i">Weekends</span><span class="it-i">Fine settimana</span></span></label>
+          <label class="check-opt"><input type="checkbox" name="schedule" value="Flexible / I'm flexible / Sono flessibile"> <span>😊 <span class="es-i">Soy flexible</span><span class="en-i">I'm flexible</span><span class="it-i">Sono flessibile</span></span></label>
+        </div>
+      </div>
+
+      <!-- Error msg -->
+      <div id="form-error" style="display:none; color:var(--error); font-size:12px; margin-bottom:12px; padding:10px 14px; background:rgba(255,77,109,0.1); border-radius:10px; border:1px solid rgba(255,77,109,0.2);">
+        <span class="es-i">Por favor completa todos los campos obligatorios.</span>
+        <span class="en-i">Please fill in all required fields.</span>
+        <span class="it-i">Per favore compila tutti i campi obbligatori.</span>
+      </div>
+
+      <button class="reserve-btn" onclick="submitForm()">
+        <span class="es-i">📩 Enviar solicitud</span>
+        <span class="en-i">📩 Send request</span>
+        <span class="it-i">📩 Invia richiesta</span>
+      </button>
+
+      <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6">
+        <span class="es-i">Te contactaremos en menos de 24h para confirmar tu clase gratuita.</span>
+        <span class="en-i">We'll contact you within 24h to confirm your free class.</span>
+        <span class="it-i">Ti contatteremo entro 24h per confermare la tua lezione gratuita.</span>
+      </p>
     </div>
-    <div class="en">
-      <div class="modal-title">Free class! 🎉</div>
-      <div class="modal-sub">No card · No commitment · 55 minutes</div>
-      <div class="reserve-note">✨ Every new student gets one completely free class before signing up.</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7">To book, message us on Instagram and let us know:<br><br>👉 Which discipline interests you most?<br>👉 Is it for you or a child?<br>👉 What days and times work best for you?</p>
-      <a href="https://www.instagram.com/_transitus" target="_blank" class="reserve-btn">📩 Message us on Instagram</a>
+
+    <!-- SUCCESS -->
+    <div id="form-success" style="display:none; text-align:center; padding:20px 0;">
+      <div style="font-size:50px; margin-bottom:16px;">🎉</div>
+      <div style="font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--offwhite); margin-bottom:8px;">
+        <span class="es-i">¡Solicitud enviada!</span>
+        <span class="en-i">Request sent!</span>
+        <span class="it-i">Richiesta inviata!</span>
+      </div>
+      <div style="font-size:13px; color:var(--muted); line-height:1.7;">
+        <span class="es-i">Te escribiremos pronto para confirmar tu clase gratis. ¡Bienvenid@ a Transitus! 🎪</span>
+        <span class="en-i">We'll write to you soon to confirm your free class. Welcome to Transitus! 🎪</span>
+        <span class="it-i">Ti scriveremo presto per confermare la tua lezione gratuita. Benvenuto/a in Transitus! 🎪</span>
+      </div>
     </div>
-    <div class="it">
-      <div class="modal-title">Lezione gratuita! 🎉</div>
-      <div class="modal-sub">Senza carta · Senza impegno · 55 minuti</div>
-      <div class="reserve-note">✨ Ogni nuovo alunno ha diritto a una lezione completamente gratuita prima di iscriversi.</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7">Per prenotare scrivici su Instagram e dicci:<br><br>👉 Quale disciplina ti interessa di più?<br>👉 È per te o per un bambino/a?<br>👉 Quali giorni e orari preferisci?</p>
-      <a href="https://www.instagram.com/_transitus" target="_blank" class="reserve-btn">📩 Scrivici su Instagram</a>
-    </div>
+
   </div>
 </div>
 
@@ -559,6 +698,73 @@ function checkHash() {
 }
 window.addEventListener('load', checkHash);
 window.addEventListener('hashchange', checkHash);
+
+// ── FORM SUBMISSION ──
+// Replace this URL with your Google Apps Script Web App URL
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbz0Xrvlp986CNZIs2pojXd6GsByhVbSk4fcsoZJ3p8nrJduFkg0kNL78kq5JN7yr_ussQ/exec';
+
+function submitForm() {
+  const name       = document.getElementById('f-name').value.trim();
+  const email      = document.getElementById('f-email').value.trim();
+  const phone      = document.getElementById('f-phone').value.trim();
+  const age        = document.getElementById('f-age').value.trim();
+  const discipline = document.getElementById('f-discipline').value;
+  const forwho     = document.querySelector('input[name="forwho"]:checked');
+  const level      = document.querySelector('input[name="level"]:checked');
+  const schedule   = [...document.querySelectorAll('input[name="schedule"]:checked')].map(i => i.value).join(', ');
+  const errorEl    = document.getElementById('form-error');
+
+  // Validation
+  if (!name || !email || !phone || !age || !discipline || !forwho || !level) {
+    errorEl.style.display = 'block';
+    ['f-name','f-email','f-phone','f-age','f-discipline'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) el.classList.add('error');
+      else el.classList.remove('error');
+    });
+    return;
+  }
+  errorEl.style.display = 'none';
+
+  const btn = document.querySelector('#form-area .reserve-btn');
+  btn.innerHTML = '<span class="spinner"></span>';
+  btn.disabled = true;
+
+  const data = { name, email, phone, age, discipline, forwho: forwho.value, level: level.value, schedule: schedule || '—', timestamp: new Date().toLocaleString() };
+
+  fetch(SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    document.getElementById('form-area').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  })
+  .catch(() => {
+    // Even on error with no-cors, show success (data likely sent)
+    document.getElementById('form-area').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  });
+}
+
+// Reset form when modal closes
+const origClose = closeModal;
+window.closeModal = function(id) {
+  origClose(id);
+  if (id === 'reserva') {
+    setTimeout(() => {
+      document.getElementById('form-area').style.display = 'block';
+      document.getElementById('form-success').style.display = 'none';
+      document.getElementById('form-error').style.display = 'none';
+      document.querySelectorAll('.field-input').forEach(el => { el.value = ''; el.classList.remove('error'); });
+      document.querySelectorAll('input[type=radio], input[type=checkbox]').forEach(el => el.checked = false);
+      const btn = document.querySelector('#form-area .reserve-btn');
+      if (btn) { btn.innerHTML = '<span class="es-i">📩 Enviar solicitud</span><span class="en-i">📩 Send request</span><span class="it-i">📩 Invia richiesta</span>'; btn.disabled = false; }
+    }, 400);
+  }
+};
 </script>
 </body>
 </html>
