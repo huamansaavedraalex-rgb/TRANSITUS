@@ -79,14 +79,10 @@
   }
   .logo-ring {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 72px; height: 72px; border-radius: 50%; margin-bottom: 16px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(123,31,162,0.2); position: relative;
+    width: 85px; height: 85px; margin-bottom: 16px;
+    background: transparent; border: none; position: relative;
   }
-  .logo-ring::before {
-    content: ''; position: absolute; inset: 5px;
-    border-radius: 50%; border: 1px solid rgba(212,0,110,0.15);
-  }
+  .logo-ring::before { content: none; }
   .logo-ring span { font-size: 32px; }
   .brand {
     font-family: 'Playfair Display', serif;
@@ -270,7 +266,7 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="logo-ring"><img src="transitus_logo.png" alt="Transitus" style="width:52px;height:52px;object-fit:contain"></div>
+    <div class="logo-ring"><img src="transitus_logo.png" alt="Transitus" style="width:85px;height:85px;object-fit:contain;"></div>
     <div class="brand">Transitus</div>
     <div class="tagline">
       <span class="es-i">Arte · Movimiento · Transformación</span>
