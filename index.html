@@ -80,8 +80,8 @@
   .logo-ring {
     display: inline-flex; align-items: center; justify-content: center;
     width: 72px; height: 72px; border-radius: 50%; margin-bottom: 16px;
-    background: linear-gradient(135deg, rgba(212,0,110,0.15), rgba(0,172,193,0.15));
-    border: 1px solid rgba(123,31,162,0.3); position: relative;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(123,31,162,0.2); position: relative;
   }
   .logo-ring::before {
     content: ''; position: absolute; inset: 5px;
@@ -270,7 +270,7 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="logo-ring"><span>🎪</span></div>
+    <div class="logo-ring"><img src="transitus_logo.png" alt="Transitus" style="width:52px;height:52px;object-fit:contain"></div>
     <div class="brand">Transitus</div>
     <div class="tagline">
       <span class="es-i">Arte · Movimiento · Transformación</span>
@@ -376,24 +376,27 @@
       <div class="free-tag">✨ Primera clase siempre gratis</div>
       <div class="plan">
         <div class="plan-badge badge-green">🌱 Explorador</div>
-        <div class="plan-header"><div class="plan-name">Plan Explorador</div><div class="plan-price">30€ <span>/ mes</span></div></div>
-        <div class="plan-detail"><strong>1 clase/semana · 4 clases al mes</strong><br>Una disciplina a elección: ballet, flexibilidad, danza, muay thai, handstand y más.</div>
+        <div class="plan-header"><div class="plan-name">Plan Explorador</div><div class="plan-price">40€ <span>/ mes</span></div></div>
+        <div class="plan-detail"><strong>1 clase/semana · 4 clases al mes</strong><br>Una disciplina a elección: Aéreos, ballet, flexibilidad, handstand o preparación física.</div>
       </div>
       <div class="plan">
         <div class="plan-badge badge-purple">⭐ Transitus</div>
-        <div class="plan-header"><div class="plan-name">Plan Transitus</div><div class="plan-price">50€ <span>/ mes</span></div></div>
+        <div class="plan-header"><div class="plan-name">Plan Transitus</div><div class="plan-price">60€ <span>/ mes</span></div></div>
         <div class="plan-detail"><strong>2 clases/semana · 8 clases al mes</strong><br>Más frecuencia, más progreso. Para quienes ya saben qué disciplina quieren trabajar.</div>
       </div>
       <div class="plan">
         <div class="plan-badge badge-magenta">🎪 Completo</div>
-        <div class="plan-header"><div class="plan-name">Plan Completo</div><div class="plan-price">75€ <span>/ mes</span></div></div>
-        <div class="plan-detail"><strong>3 clases/semana · 12 clases al mes</strong><br>Acceso libre a TODAS las disciplinas con ambos profesores. Incluye Aéreos.</div>
+        <div class="plan-header"><div class="plan-name">Plan Completo</div><div class="plan-price">85€ <span>/ mes</span></div></div>
+        <div class="plan-detail"><strong>3 clases/semana · 12 clases al mes</strong><br>Acceso libre a TODAS las disciplinas con ambos profesores.</div>
       </div>
-      <div class="aerial-note">🪢 <strong>¿Te interesan los Aéreos?</strong><br>Plan Explorador con Aéreos → <strong>35€/mes</strong><br>Plan Transitus con Aéreos → <strong>55€/mes</strong><br>Plan Completo → ya incluye Aéreos ✓</div>
       <div class="plan" style="margin-top:10px">
         <div class="plan-badge badge-aerial">🎟️ Clase suelta</div>
         <div class="plan-header"><div class="plan-name">Clase suelta</div><div class="plan-price">15€</div></div>
         <div class="plan-detail">Para probar una disciplina adicional fuera de tu plan.</div>
+      </div>
+      <div style="margin-top:16px;padding:14px;background:rgba(123,31,162,0.1);border:1px solid rgba(123,31,162,0.25);border-radius:12px;font-size:12px;color:var(--muted);line-height:1.7">
+        <strong style="color:var(--offwhite)">👩‍🏫 Alexandra:</strong> Aéreos · Ballet · Flexibilidad<br>
+        <strong style="color:var(--offwhite)">👨‍🏫 Lorenzo:</strong> Handstand · Preparación física
       </div>
     </div>
 
@@ -404,24 +407,27 @@
       <div class="free-tag">✨ First class always free</div>
       <div class="plan">
         <div class="plan-badge badge-green">🌱 Explorer</div>
-        <div class="plan-header"><div class="plan-name">Explorer Plan</div><div class="plan-price">30€ <span>/ month</span></div></div>
-        <div class="plan-detail"><strong>1 class/week · 4 classes per month</strong><br>One discipline of your choice: ballet, flexibility, dance, muay thai, handstand and more.</div>
+        <div class="plan-header"><div class="plan-name">Explorer Plan</div><div class="plan-price">40€ <span>/ month</span></div></div>
+        <div class="plan-detail"><strong>1 class/week · 4 classes per month</strong><br>One discipline of your choice: Aerial arts, ballet, flexibility, handstand or fitness training.</div>
       </div>
       <div class="plan">
         <div class="plan-badge badge-purple">⭐ Transitus</div>
-        <div class="plan-header"><div class="plan-name">Transitus Plan</div><div class="plan-price">50€ <span>/ month</span></div></div>
+        <div class="plan-header"><div class="plan-name">Transitus Plan</div><div class="plan-price">60€ <span>/ month</span></div></div>
         <div class="plan-detail"><strong>2 classes/week · 8 classes per month</strong><br>More frequency, more progress. For those who know which discipline they want to focus on.</div>
       </div>
       <div class="plan">
         <div class="plan-badge badge-magenta">🎪 Full</div>
-        <div class="plan-header"><div class="plan-name">Full Plan</div><div class="plan-price">75€ <span>/ month</span></div></div>
-        <div class="plan-detail"><strong>3 classes/week · 12 classes per month</strong><br>Free access to ALL disciplines with both teachers. Includes Aerial arts.</div>
+        <div class="plan-header"><div class="plan-name">Full Plan</div><div class="plan-price">85€ <span>/ month</span></div></div>
+        <div class="plan-detail"><strong>3 classes/week · 12 classes per month</strong><br>Free access to ALL disciplines with both teachers.</div>
       </div>
-      <div class="aerial-note">🪢 <strong>Interested in Aerial arts?</strong><br>Explorer Plan with Aerial → <strong>35€/month</strong><br>Transitus Plan with Aerial → <strong>55€/month</strong><br>Full Plan → Aerial already included ✓</div>
       <div class="plan" style="margin-top:10px">
         <div class="plan-badge badge-aerial">🎟️ Drop-in class</div>
         <div class="plan-header"><div class="plan-name">Drop-in class</div><div class="plan-price">15€</div></div>
         <div class="plan-detail">Try an additional discipline outside your plan.</div>
+      </div>
+      <div style="margin-top:16px;padding:14px;background:rgba(123,31,162,0.1);border:1px solid rgba(123,31,162,0.25);border-radius:12px;font-size:12px;color:var(--muted);line-height:1.7">
+        <strong style="color:var(--offwhite)">👩‍🏫 Alexandra:</strong> Aerial arts · Ballet · Flexibility<br>
+        <strong style="color:var(--offwhite)">👨‍🏫 Lorenzo:</strong> Handstand · Fitness training
       </div>
     </div>
 
@@ -432,24 +438,27 @@
       <div class="free-tag">✨ Prima lezione sempre gratuita</div>
       <div class="plan">
         <div class="plan-badge badge-green">🌱 Esploratore</div>
-        <div class="plan-header"><div class="plan-name">Piano Esploratore</div><div class="plan-price">30€ <span>/ mese</span></div></div>
-        <div class="plan-detail"><strong>1 lezione/settimana · 4 lezioni al mese</strong><br>Una disciplina a scelta: balletto, flessibilità, danza, muay thai, handstand e altro.</div>
+        <div class="plan-header"><div class="plan-name">Piano Esploratore</div><div class="plan-price">40€ <span>/ mese</span></div></div>
+        <div class="plan-detail"><strong>1 lezione/settimana · 4 lezioni al mese</strong><br>Una disciplina a scelta: Aerea, balletto, flessibilità, handstand o preparazione fisica.</div>
       </div>
       <div class="plan">
         <div class="plan-badge badge-purple">⭐ Transitus</div>
-        <div class="plan-header"><div class="plan-name">Piano Transitus</div><div class="plan-price">50€ <span>/ mese</span></div></div>
+        <div class="plan-header"><div class="plan-name">Piano Transitus</div><div class="plan-price">60€ <span>/ mese</span></div></div>
         <div class="plan-detail"><strong>2 lezioni/settimana · 8 lezioni al mese</strong><br>Più frequenza, più progressi. Per chi sa già quale disciplina vuole praticare.</div>
       </div>
       <div class="plan">
         <div class="plan-badge badge-magenta">🎪 Completo</div>
-        <div class="plan-header"><div class="plan-name">Piano Completo</div><div class="plan-price">75€ <span>/ mese</span></div></div>
-        <div class="plan-detail"><strong>3 lezioni/settimana · 12 lezioni al mese</strong><br>Accesso libero a TUTTE le discipline con entrambi gli insegnanti. Aerea inclusa.</div>
+        <div class="plan-header"><div class="plan-name">Piano Completo</div><div class="plan-price">85€ <span>/ mese</span></div></div>
+        <div class="plan-detail"><strong>3 lezioni/settimana · 12 lezioni al mese</strong><br>Accesso libero a TUTTE le discipline con entrambi gli insegnanti.</div>
       </div>
-      <div class="aerial-note">🪢 <strong>Ti interessa la Aerea?</strong><br>Piano Esploratore con Aerea → <strong>35€/mese</strong><br>Piano Transitus con Aerea → <strong>55€/mese</strong><br>Piano Completo → Aerea già inclusa ✓</div>
       <div class="plan" style="margin-top:10px">
         <div class="plan-badge badge-aerial">🎟️ Lezione singola</div>
         <div class="plan-header"><div class="plan-name">Lezione singola</div><div class="plan-price">15€</div></div>
         <div class="plan-detail">Per provare una disciplina aggiuntiva fuori dal piano.</div>
+      </div>
+      <div style="margin-top:16px;padding:14px;background:rgba(123,31,162,0.1);border:1px solid rgba(123,31,162,0.25);border-radius:12px;font-size:12px;color:var(--muted);line-height:1.7">
+        <strong style="color:var(--offwhite)">👩‍🏫 Alexandra:</strong> Aerea · Balletto · Flessibilità<br>
+        <strong style="color:var(--offwhite)">👨‍🏫 Lorenzo:</strong> Handstand · Preparazione fisica
       </div>
     </div>
   </div>
@@ -513,14 +522,12 @@
       <div class="field">
         <label class="field-label"><span class="es-i">Disciplina de interés</span><span class="en-i">Discipline of interest</span><span class="it-i">Disciplina di interesse</span></label>
         <select class="field-input field-select" id="f-discipline">
-          <option value="" disabled selected><span class="es-i">Elige una opción</span></option>
-          <option value="Aéreos / Aerial / Aerea">🪢 <span class="es-i">Aéreos</span><span class="en-i">Aerial arts</span><span class="it-i">Aerea</span></option>
-          <option value="Ballet">🩰 Ballet</option>
-          <option value="Danza / Dance / Danza">💃 <span class="es-i">Danza contemporánea</span><span class="en-i">Contemporary dance</span><span class="it-i">Danza contemporanea</span></option>
-          <option value="Flexibilidad / Flexibility / Flessibilità">🤸 <span class="es-i">Flexibilidad</span><span class="en-i">Flexibility</span><span class="it-i">Flessibilità</span></option>
-          <option value="Muay Thai">🥊 Muay Thai</option>
-          <option value="Handstand">🙃 Handstand</option>
-          <option value="Acondicionamiento / Fitness / Condizionamento">💪 <span class="es-i">Acondicionamiento físico</span><span class="en-i">Physical conditioning</span><span class="it-i">Condizionamento fisico</span></option>
+          <option value="" disabled selected>— <span class="es-i">Elige una opción</span><span class="en-i">Choose an option</span><span class="it-i">Scegli un'opzione</span> —</option>
+          <option value="Aéreos / Aerial arts / Aerea">🪢 <span class="es-i">Aéreos (Alexandra)</span><span class="en-i">Aerial arts (Alexandra)</span><span class="it-i">Aerea (Alexandra)</span></option>
+          <option value="Ballet">🩰 Ballet (Alexandra)</option>
+          <option value="Flexibilidad / Flexibility / Flessibilità">🤸 <span class="es-i">Flexibilidad (Alexandra)</span><span class="en-i">Flexibility (Alexandra)</span><span class="it-i">Flessibilità (Alexandra)</span></option>
+          <option value="Handstand">🤲 Handstand (Lorenzo)</option>
+          <option value="Preparación física / Fitness training / Preparazione fisica">💪 <span class="es-i">Preparación física (Lorenzo)</span><span class="en-i">Fitness training (Lorenzo)</span><span class="it-i">Preparazione fisica (Lorenzo)</span></option>
           <option value="No sé aún / Not sure yet / Non sono sicuro/a">🤔 <span class="es-i">No sé aún</span><span class="en-i">Not sure yet</span><span class="it-i">Non sono sicuro/a</span></option>
         </select>
       </div>
@@ -604,10 +611,9 @@
       <div class="modal-sub">Lo que más nos preguntan 👇</div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Desde qué edad se puede tomar clases? <span class="faq-icon">+</span></div><div class="faq-a">¡Para todas las edades! Tenemos clases para niñas, jóvenes y adultos.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Necesito experiencia previa? <span class="faq-icon">+</span></div><div class="faq-a">Para nada. Aceptamos principiantes completos en todas las disciplinas.</div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Las clases son presenciales o virtuales? <span class="faq-icon">+</span></div><div class="faq-a">La mayoría son 100% virtuales. Solo los Aéreos requieren espacio físico.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Las clases son presenciales o virtuales? <span class="faq-icon">+</span></div><div class="faq-a">Todas las clases son 100% virtuales desde casa. Para los Aéreos necesitarás una estructura de tela aérea en casa — si no tienes una, contáctanos porque tenemos un acuerdo especial con UPA aparatos de circo para ayudarte con la instalación.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Cuántos alumnos hay por clase? <span class="faq-icon">+</span></div><div class="faq-a">Máximo 6 alumnos por clase para garantizar atención personalizada.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Cuánto dura cada clase? <span class="faq-icon">+</span></div><div class="faq-a">55 minutos exactos. Comenzamos puntual y terminamos a la hora.</div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Los Aéreos cuestan más? <span class="faq-icon">+</span></div><div class="faq-a">Sí. Explorador con Aéreos: 35€/mes. Transitus con Aéreos: 55€/mes. El Plan Completo ya incluye Aéreos.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">¿Puedo cambiar de plan? <span class="faq-icon">+</span></div><div class="faq-a">Sí, al inicio de cada mes. Solo avísanos y lo ajustamos.</div></div>
     </div>
     <div class="en">
@@ -615,10 +621,9 @@
       <div class="modal-sub">The most common questions 👇</div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What age can students start? <span class="faq-icon">+</span></div><div class="faq-a">All ages! We have classes for children, teenagers and adults.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I need prior experience? <span class="faq-icon">+</span></div><div class="faq-a">Not at all. We welcome complete beginners in all disciplines.</div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Are classes in-person or online? <span class="faq-icon">+</span></div><div class="faq-a">Most are 100% virtual from home. Only Aerial arts require a physical space.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Are classes in-person or online? <span class="faq-icon">+</span></div><div class="faq-a">All classes are 100% virtual from home. For Aerial arts you will need an aerial silk structure at home — if you don't have one, contact us as we have a special agreement with UPA circus equipment to help with installation.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How many students per class? <span class="faq-icon">+</span></div><div class="faq-a">Maximum 6 students per class to ensure personalized attention.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How long is each class? <span class="faq-icon">+</span></div><div class="faq-a">Exactly 55 minutes. We start and finish on time.</div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Does Aerial cost more? <span class="faq-icon">+</span></div><div class="faq-a">Yes. Explorer with Aerial: 35€/month. Transitus with Aerial: 55€/month. Full Plan already includes Aerial.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I change my plan? <span class="faq-icon">+</span></div><div class="faq-a">Yes, at the start of each month. Just let us know and we'll sort it out.</div></div>
     </div>
     <div class="it">
@@ -626,10 +631,9 @@
       <div class="modal-sub">Le domande più comuni 👇</div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Da che età si può seguire le lezioni? <span class="faq-icon">+</span></div><div class="faq-a">Per tutte le età! Abbiamo lezioni per bambini, ragazzi e adulti.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Ho bisogno di esperienza previa? <span class="faq-icon">+</span></div><div class="faq-a">No, accettiamo principianti completi in tutte le discipline.</div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Le lezioni sono in presenza o online? <span class="faq-icon">+</span></div><div class="faq-a">La maggior parte sono 100% virtuali da casa. Solo la Aerea richiede uno spazio fisico.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Le lezioni sono in presenza o online? <span class="faq-icon">+</span></div><div class="faq-a">Tutte le lezioni sono 100% virtuali da casa. Per la Aerea avrai bisogno di una struttura per tessuto aereo a casa — se non ce l'hai, contattaci perché abbiamo un accordo speciale con UPA apparati da circo per aiutarti con l'installazione.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Quanti alunni ci sono per classe? <span class="faq-icon">+</span></div><div class="faq-a">Massimo 6 alunni per classe per garantire attenzione personalizzata.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Quanto dura ogni lezione? <span class="faq-icon">+</span></div><div class="faq-a">55 minuti esatti. Si inizia puntuali e si finisce all'ora.</div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">La Aerea costa di più? <span class="faq-icon">+</span></div><div class="faq-a">Sì. Esploratore con Aerea: 35€/mese. Transitus con Aerea: 55€/mese. Il Piano Completo include già la Aerea.</div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Posso cambiare piano? <span class="faq-icon">+</span></div><div class="faq-a">Sì, all'inizio di ogni mese. Basta avvisarci e lo aggiustiamo.</div></div>
     </div>
   </div>
